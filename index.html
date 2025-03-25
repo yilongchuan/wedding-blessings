@@ -2,57 +2,184 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>王一凡 & 于佳慧的婚礼邀请函</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blessing {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #ff6f61;
+        }
+
+        .date {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
         .highlight {
-            font-weight: bold; /* 加重字体 */
-            font-size: 1.5em; /* 增大字体 */
-            color: #ff6f61; /* 设置颜色 */
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #ff6f61;
         }
-        .blessing-text {
-            font-size: 0.9em; /* 调小字体 */
-            color: #4a90e2; /* 设置新颜色 */
-            font-style: italic; /* 斜体 */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-            margin: 10px 0; /* 添加上下间距 */
-        }
+
         .small-highlight {
-            font-size: 1.2em; /* 调大字体 */
-            color: #ff6f61; /* 保持颜色一致 */
+            font-size: 1.2em;
+            color: #ff6f61;
         }
+
+        .blessing-text {
+            font-size: 0.9em;
+            color: #4a90e2;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .photo-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .wedding-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-container {
+            margin: 30px auto;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
         .modal {
-            display: none; /* 默认隐藏 */
-            position: fixed; /* 固定定位 */
-            z-index: 1000; /* 在最上层 */
+            display: none;
+            position: fixed;
+            z-index: 1000;
             left: 0;
             top: 0;
-            width: 100%; /* 全屏 */
-            height: 100%; /* 全屏 */
-            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-            justify-content: center; /* 居中对齐 */
-            align-items: center; /* 居中对齐 */
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
         }
+
         .modal-content {
-            background-color: white; /* 白色背景 */
-            padding: 20px; /* 内边距 */
-            border-radius: 10px; /* 圆角 */
-            text-align: center; /* 文本居中 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            margin: 20px;
         }
+
         .play-button {
-            padding: 10px 20px; /* 内边距 */
-            font-size: 1em; /* 字体大小 */
-            color: white; /* 字体颜色 */
-            background-color: #ff6f61; /* 按钮背景颜色 */
-            border: none; /* 去掉边框 */
-            border-radius: 5px; /* 圆角 */
-            cursor: pointer; /* 鼠标指针 */
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
         }
-        .play-button:hover {
-            background-color: #e55a4d; /* 悬停时的背景颜色 */
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .highlight {
+                font-size: 1.2em;
+            }
+
+            .small-highlight {
+                font-size: 1em;
+            }
+
+            .blessing-text {
+                font-size: 0.8em;
+            }
+
+            .code-block {
+                font-size: 12px;
+                padding: 15px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .photo-container {
+                padding: 0 10px;
+            }
+        }
+
+        /* 超小屏幕适配 */
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 1.2em;
+            }
+
+            .highlight {
+                font-size: 1em;
+            }
+
+            .blessing-text {
+                font-size: 0.7em;
+            }
         }
     </style>
 </head>
