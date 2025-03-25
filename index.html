@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王一凡 & 于佳慧的婚礼邀请函</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .highlight {
+            font-weight: bold; /* 加重字体 */
+            font-size: 1.5em; /* 增大字体 */
+            color: #ff6f61; /* 设置颜色 */
+        }
+        .blessing-text {
+            font-size: 0.9em; /* 调小字体 */
+            color: #4a90e2; /* 设置新颜色 */
+            font-style: italic; /* 斜体 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+            margin: 10px 0; /* 添加上下间距 */
+        }
+        .small-highlight {
+            font-size: 1.2em; /* 调大字体 */
+            color: #ff6f61; /* 保持颜色一致 */
+        }
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed; /* 固定定位 */
+            z-index: 1000; /* 在最上层 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 全屏 */
+            height: 100%; /* 全屏 */
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            justify-content: center; /* 居中对齐 */
+            align-items: center; /* 居中对齐 */
+        }
+        .modal-content {
+            background-color: white; /* 白色背景 */
+            padding: 20px; /* 内边距 */
+            border-radius: 10px; /* 圆角 */
+            text-align: center; /* 文本居中 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+        }
+        .play-button {
+            padding: 10px 20px; /* 内边距 */
+            font-size: 1em; /* 字体大小 */
+            color: white; /* 字体颜色 */
+            background-color: #ff6f61; /* 按钮背景颜色 */
+            border: none; /* 去掉边框 */
+            border-radius: 5px; /* 圆角 */
+            cursor: pointer; /* 鼠标指针 */
+        }
+        .play-button:hover {
+            background-color: #e55a4d; /* 悬停时的背景颜色 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="music-control">
+            <audio id="bgMusic" loop>
+                <source src="童话.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        
+        <div class="main-content">
+            <div class="blessing">
+                <h1>王一凡 & 于佳慧</h1>
+                <p class="date">2025年3月25日</p>
+                <p class="message">
+                    <span class="small-highlight">祝你们</span> <span class="highlight">新婚快乐，百年好合！</span><br>
+                    <span class="blessing-text">生活中有欢笑有泪水，愿你们携手共度每一个春夏秋冬！</span><br>
+                    <span class="blessing-text">希望你们的未来如同美好的童话，幸福快乐，永不分离！</span>
+                </p>
+                <p class="signature">倩&衣 祝福</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="wedding-photo.jpg" alt="王一凡 & 于佳慧" class="wedding-photo">
+            </div>
+            
+            <div class="code-container">
+                <p class="code-message">愿你的爱情，就像这段代码一样：</p>
+                <pre class="code-block">
+/**
+ * @description 祝福你们的爱情
+ * @param {string} he - 王一凡
+ * @param {string} she - 于佳慧
+ * @date 2025-03-25
+ */
+class Marriage {
+    constructor(he, she) {
+        this.love = `${he} ❤️ ${she}`;
+    }
+    
+    forever() {
+        return `愿你们的爱情像这段代码一样，永远不会出错！`;
+    }
+}
+
+const couple = new Marriage('王一凡', '于佳慧');
+console.log(couple.forever());
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="modal" id="musicModal">
+        <div class="modal-content">
+            <h2>新婚快乐！</h2>
+            <p>点击下面的按钮播放音乐：</p>
+            <button id="playMusic" class="play-button">播放音乐</button>
+        </div>
+    </div>
+
+    <script>
+        // 显示弹窗
+        window.addEventListener('load', function() {
+            const modal = document.getElementById('musicModal');
+            modal.style.display = 'flex'; // 显示弹窗
+        });
+
+        // 添加播放按钮的功能
+        document.getElementById('playMusic').addEventListener('click', function() {
+            const audio = document.getElementById('bgMusic');
+            audio.play().catch(function(error) {
+                console.log("播放失败，可能是音频文件路径错误或浏览器设置问题。");
+            });
+            const modal = document.getElementById('musicModal');
+            modal.style.display = 'none'; // 隐藏弹窗
+        });
+    </script>
+</body>
+</html> 
